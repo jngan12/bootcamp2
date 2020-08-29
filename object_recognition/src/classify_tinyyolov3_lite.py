@@ -1,11 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # based on https://github.com/experiencor/keras-yolo3
 
 import sys
-sys.path.remove('/opt/ros/melodic/lib/python2.7/dist-packages') # in order to import cv2 under python3
+#sys.path.remove('/opt/ros/melodic/lib/python2.7/dist-packages') # in order to import cv2 under python3
 import cv2
-sys.path.append('/opt/ros/melodic/lib/python2.7/dist-packages') # append back in order to import rospy
+#sys.path.append('/opt/ros/melodic/lib/python2.7/dist-packages') # append back in order to import rospy
 
 import rospy
 import roslib
