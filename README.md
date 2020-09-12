@@ -14,3 +14,7 @@ The following assignments have been provided with skeleton code:
 
 Individual instructions for the completion of these assignments are provided in the individual folders.
 
+## Update 09/12/20: more updates to README.md
+
+
+
