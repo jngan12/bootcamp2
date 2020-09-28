@@ -32,7 +32,7 @@ def dist_control(distance):
 	global DISTANCE_THRESHOLD 
 	global STEERING_ANGLE
 	
-	# TO-DO: Calculate Distance to Collition Error
+	# TO-DO: Calculate Distance to Collision Error
 	# ---
 
 	# ---
