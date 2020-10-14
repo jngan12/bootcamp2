@@ -1,6 +1,24 @@
 <?xml version="1.0"?>
 <launch>
 
- <!-- TO-DO: Bring up the simulator and the code -->
-  
+	<!-- TO-DO: Bring up the simulator and the code -->
+   <include file="$(find racecar_gazebo)/launch/racecar.launch">
+    <!--<arg name="world_name" value="racecar"/>-->
+     <arg name="world_name" value="racecar_wall"/>
+    <!--<arg name="world_name" value="track_porto"/>-->
+    <!--<arg name="world_name" value="lab_track2"/>-->
+    <!--<arg name="world_name" value="track_levine"/>-->
+    <!--<arg name="world_name" value="track_porto"/>-->
+    <!--<arg name="world_name" value="track_barca"/>-->
+    <!--arg name="world_name" value="follow_line"/-->
+    <!--arg name="world_name" value="lane_keep_DL"/-->
+
+   </include>
+
+   <node pkg="automatic_emergency_braking" type="sae_aeb_zhua.py" name="aeb">
+       <param name="control" value="dist_ctrl"/>
+       <param name="k" value="0.8"/>
+   </node>
+
+   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find automatic_emergency_braking)/rviz/aeb.rviz"/>
 </launch>
