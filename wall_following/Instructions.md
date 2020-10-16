@@ -17,7 +17,7 @@ Complete `sae_wall_following.py` in the `wall_following` folder. The simulator m
 
 3. Pick two rays, directly to the right of the vehicle, and one further ahead, as shown in the picture below:
 
-   ![Screenshot from 2020-08-27 14-22-35](/home/adhitir/Pictures/Screenshot from 2020-08-27 14-22-35.png)
+   ![Screenshot from 2020-08-27 14-22-35](../_pictures/Screenshot from 2020-08-27 14-22-35.png)
 
    Use the `get_index` function from earlier to get the index of these selected angles and find the range values, **a** and **b**. Since theta is known, use geometry to find alpha, which is the angle of the vehicle from the centerline.  Finally, find the actual distance of the vehicle from the centerline. The error your controller should depend on is the difference between this value and desired distance from the wall. 
 
