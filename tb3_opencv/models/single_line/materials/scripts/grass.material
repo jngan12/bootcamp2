@@ -11,7 +11,7 @@ material path/kobuki
 
 			texture_unit
 			{
-				texture line1.png
+				texture line_yellow.jpg
 				filtering anistropic
         max_anisotropy 16
 			}
