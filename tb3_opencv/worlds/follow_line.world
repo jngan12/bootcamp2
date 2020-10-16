@@ -41,7 +41,7 @@
     </gui>
   
     <include>
-      <uri>model://line_plane</uri>
+      <uri>model://single_line</uri>
     </include>
     
   </world>

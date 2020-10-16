@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.4'>
-  <model name='line_plane'>
+  <model name='single_line'>
     <static>true</static>
     <link name='link'>
       <collision name='collision'>
@@ -32,8 +32,8 @@
         </geometry>
         <material>
           <script>
-            <uri>model://line_plane/materials/scripts</uri>
-            <uri>model://line_plane/materials/textures</uri>
+            <uri>model://racecar_description/models/single_line/materials/scripts</uri>
+            <uri>model://racecar_description/models/single_line/materials/textures</uri>
             <name>path/kobuki</name>
           </script>
         </material>
