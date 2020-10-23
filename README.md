@@ -1,5 +1,20 @@
 # bootcamp-assignments
 
+<<<<<<< HEAD
+=======
+### Dependencies:
+* ros-kinetic-laser-proc*
+* ros-kinetic-urg-c
+* roskinetic-driver-base
+* ros-kinetic-driver-base
+* ros-kinetic-ros-control*
+* ros-kinetic-gazebo-ros-control
+* ros-kinetic-ackermann-msgs
+* ros-kinetic-joy
+* qt4-default
+* ros-kinetic-opencv3
+* ros-kinetic-pid
+>>>>>>> c41c70e121741c8d4c9f1c875783d011ac790d44
 
 This repository contains skeleton code for some of the assignments in the SAE Robotics Bootcamp Course. 
 
