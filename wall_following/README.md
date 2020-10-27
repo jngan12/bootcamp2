@@ -21,20 +21,20 @@ Please follow the steps below to run the code:
 4. Default controller is for **center following**. To switch to right wall following, edit  the **~/sae_ws/ros_ws/src/bootcamp-assignments/wall_following/launch/wall_following.launch** file. Change  teh value of parameter **"following"** inside this line **param name="following" value="center"/** to **"right"**. Then rerun the launch file above to see the car following right wall.
 
 ## Design Considerations
-1. To follow the wall, it is important to find out the car's position with regard to the wall. If we take the right wall as our reference, here's a diagram showing the relationship between rays and angles:
-![Diagram of distances and angles](./img/wall_following_distance_calculation.png)
-It then can be deduced the alpha value can be calculated thus:
-![Calculating alpha](./img/wall_following_alpha_calculation.png)
-Once angle alpha is derived, it's easy to find the car's position relative to the right side wall:
-![Wall distance](./img/wall_following_distance_based_on_alpha.png)
+1. To follow the wall, it is important to find out the car's position with regard to the wall. If we take the right wall as our reference, here's a diagram showing the relationship between rays and angles:<br/>
+![Diagram of distances and angles](./img/wall_following_distance_calculation.png)<br/>
+It then can be deduced the alpha value can be calculated thus:<br/>
+![Calculating alpha](./img/wall_following_alpha_calculation.png)<br/>
+Once angle alpha is derived, it's easy to find the car's position relative to the right side wall:<br/>
+![Wall distance](./img/wall_following_distance_based_on_alpha.png)<br/>
 2. Given the distance threshold to the right side wall, the error is then calculated as the difference between the actual distance derived above and the threshold. The error is then fed to the pd controller to guide the car.
 3. Following the center is quite similar in principle. The extra step is to derive the car's distance to the left side wall. The center line is then the average between the right and left hand side walls. The difference between the center line and current car location is the driving error to be used.
 4. The controller used here is a proportional and derivative (pd) controller. To calculate the derivative part, it is required to keep a copy of the previous error and accompanying timestamp. So a rolling error update function is needed for each callback. 
 
 ## Results
 Video recordings for both center-following and right-wall-following runs can be found here:
-**./video/sae_robotics_bootcamp_wk5_wall_following_center.mp4**
-**./video/sae_robotics_bootcamp_wk5_wall_following_right.mp4**
+**./video/sae_robotics_bootcamp_wk5_wall_following_center.mp4**<br/>
+**./video/sae_robotics_bootcamp_wk5_wall_following_right.mp4**<br/>
 
 ## Controller Evaluation
 The controller did quite a good job guiding the car through the course, as the video clips show. With the addition of emergency brake (explained below), the car is able to navigate the entire track by itself
