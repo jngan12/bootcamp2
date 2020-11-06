@@ -1,5 +1,23 @@
 <?xml version="1.0"?>
 <launch>
   <!-- TO-DO: Bring up the vehicle in the `lane_keep` world and the simple_lane_keep node-->
+  <include file="$(find racecar_gazebo)/launch/racecar.launch">
+    <!--<arg name="world_name" value="racecar"/>-->
+    <!--arg name="world_name" value="racecar_wall"/>-->
+    <!--<arg name="world_name" value="track_porto"/>-->
+    <!--<arg name="world_name" value="track_levine"/>-->
+    <!--<arg name="world_name" value="track_porto"/>-->
+    <!--arg name="world_name" value="track_barca"/>-->
+    <!--arg name="world_name" value="follow_line"/>-->
+    <arg name="world_name" value="lane_keep"/>
+    <arg name="x_pos" value="0.1"/>
+    <arg name="y_pos" value="8.1"/>
+
+  </include>
+
+  <node pkg="lane_keeping" type="simple_lane_keep.py" name="lane_keeping">
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find wall_following)/rviz/wf.rviz"/>
 
 </launch>
