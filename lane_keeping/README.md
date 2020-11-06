@@ -1,5 +1,5 @@
-# Lane Keeping
-In this project we implement a lane keeping controller by utilizing OpenCV to process the lane track information from video feed and keep the race car on the lance through the course. <br/>
+# Autonomous Lane Keeping
+In this project we implement an autonomous lane keeping controller by utilizing OpenCV to process the lane track information from video feed and keep the race car on the lance through the course. <br/>
 ![Lane Keeping screenshot](./imgs/sae_robotics_bootcamp_wk6_lane_keeping.png)
 
 ## Team: Group 1
