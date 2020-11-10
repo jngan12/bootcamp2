@@ -40,6 +40,8 @@ target_size = (224, 224)
 
 bridge = CvBridge()
 
+pub_msg = Predictor()
+
 def callback(image_msg):
     print("In callback")
     time_start = time()
@@ -61,14 +63,25 @@ def callback(image_msg):
         set_session(sess)
         preds = model.predict(np_image)            # Classify the image
         pred_string = decode_predictions(preds, top=1)   # Decode top 1 predictions
+
         print(pred_string)
+
+        try:
+            pub_msg.header.stamp = rospy.Time.now()
+            pub_msg.label = pred_string[0][0][1]
+            pub_msg.score = float(pred_string[0][0][2]*100)
+            pub_msg.box_coords = []
+            pub.publish(pub_msg)
+        except ValueError:
+            print("Prediction below threshold")
+            pass
     print "Inference duration: " + str(time() - time_start) + " seconds"
 
 rospy.init_node('classify', anonymous=True)
 
 rospy.Subscriber("usb_cam/image_raw", Image, callback, queue_size = 1, buff_size = 16777216)
 
-#pub = rospy.Publisher('object_detector', Predictor, queue_size = 1)
+pub = rospy.Publisher('object_detector', Predictor, queue_size = 1)
 
 print("In main")
 
