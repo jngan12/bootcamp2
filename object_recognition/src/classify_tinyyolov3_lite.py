@@ -116,6 +116,8 @@ def get_predictions(preds, labels, thresh):
   return v_labels, v_scores
 
 def callback(image_msg):
+    print("In callback")
+
     #First convert the image to OpenCV image 
     cv_image = bridge.imgmsg_to_cv2(image_msg, desired_encoding="passthrough")
     height, width, channels = cv_image.shape
@@ -126,6 +128,8 @@ def callback(image_msg):
     np_image /= 255.0
     np_image = np.expand_dims(np_image, 0)     # add a dimension so that we have one sample
 
+    cv2.imshow('Camera',cv2.flip(cv_image,0))
+    cv2.waitKey(1)
    
     global sess
     global graph                                  # This is a workaround for asynchronous execution
@@ -172,6 +176,8 @@ rospy.init_node('classify', anonymous=True)
 rospy.Subscriber("usb_cam/image_raw", Image, callback, queue_size = 1, buff_size = 16777216)
 
 pub = rospy.Publisher('object_detector', Predictor, queue_size = 1)
+
+print("In main")
 
 while not rospy.is_shutdown():
   rospy.spin()
