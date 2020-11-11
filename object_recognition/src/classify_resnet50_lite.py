@@ -43,7 +43,7 @@ bridge = CvBridge()
 pub_msg = Predictor()
 
 def callback(image_msg):
-    print("In callback")
+    #print("In callback")
     time_start = time()
     #First convert the image to OpenCV image 
     cv_image = bridge.imgmsg_to_cv2(image_msg, desired_encoding="passthrough")
