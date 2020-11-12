@@ -11,7 +11,7 @@ from sensor_msgs.msg import Image
 class LineFollower(object):
     def __init__(self):
         self.bridge_object = CvBridge()
-	    self.image_sub = rospy.Subscriber("/camera/rgb/image_raw",Image,self.camera_callback)
+        self.image_sub = rospy.Subscriber("/camera/rgb/image_raw",Image,self.camera_callback)
     
     def camera_callback(self,data):
         try:
@@ -23,8 +23,9 @@ class LineFollower(object):
 	cv2.waitKey(1)
 
 def main():
-    line_follower_object = LineFollower()
     rospy.init_node('line_following_node', anonymous=True)
+    line_follower_object = LineFollower()
+
     try:
         rospy.spin()
     except KeyboardInterrupt:
