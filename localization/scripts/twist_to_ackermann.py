@@ -4,12 +4,12 @@ import rospy, math
 from geometry_msgs.msg import Twist
 from ackermann_msgs.msg import AckermannDriveStamped
 
-def convert_trans_rot_vel_to_steering_angle(v, omega, wheelbase):
-  if omega == 0 or v == 0:
-    return 0
+#def convert_trans_rot_vel_to_steering_angle(v, omega, wheelbase):
+#  if omega == 0 or v == 0:
+#    return 0
 
-  radius = v / omega
-  return math.atan(wheelbase / radius)
+#  radius = v / omega
+#  return math.atan(wheelbase / radius)
 
 
 def cmd_callback(data):
@@ -19,7 +19,8 @@ def cmd_callback(data):
   global pub
   
   v = data.linear.x
-  steering = convert_trans_rot_vel_to_steering_angle(v, data.angular.z, wheelbase)
+  #steering = convert_trans_rot_vel_to_steering_angle(v, data.angular.z, wheelbase)
+  steering = data.angular.z
   
   msg = AckermannDriveStamped()
   msg.header.stamp = rospy.Time.now()
